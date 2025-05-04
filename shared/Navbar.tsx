@@ -1,21 +1,40 @@
-import React from "react";
+"use client";
+import React, { useEffect, useState } from "react";
 import { Anchor, Box, Group, Text } from "@mantine/core";
 
 const Navbar = () => {
+  const [screenWidth, setScreenWidth] = useState(0);
+
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      setScreenWidth(window.innerWidth);
+
+      const updateScreenWidth = () => {
+        setScreenWidth(window.innerWidth);
+      };
+
+      window.addEventListener("resize", updateScreenWidth);
+
+      return () => {
+        window.removeEventListener("resize", updateScreenWidth);
+      };
+    }
+  }, []);
+
   return (
     <>
       <Box
         style={{
           backgroundImage: "linear-gradient(to right, #FC004E, #10CBE0)",
           width: "100%",
-          height: 46,
+          height: screenWidth < 1080 ? 76 : 46,
           display: "flex",
           justifyContent: "center",
           alignItems: "center",
           borderRadius: 0,
         }}
       >
-        <Text fw={800} style={{ fontFamily: 'Figtree, sans-serif' }}>
+        <Text fw={800} className="header-title">
           🚀 <span style={{ color: "#00E7F9" }}>FRESH BEGINNINGS SALE:</span>{" "}
           Extra 25% OFF, Limited Spots - start your journey today!
         </Text>

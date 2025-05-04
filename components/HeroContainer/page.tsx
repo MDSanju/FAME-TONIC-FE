@@ -1,87 +1,86 @@
-import React from "react";
-import { Box, Button, Flex, Group, Text } from "@mantine/core";
+"use client";
+import React, { useEffect, useState } from "react";
+import { Box, Button, Group, Text } from "@mantine/core";
 
 const HeroContainer = () => {
+  const [screenWidth, setScreenWidth] = useState(0);
+
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      setScreenWidth(window.innerWidth);
+
+      const updateScreenWidth = () => {
+        setScreenWidth(window.innerWidth);
+      };
+
+      window.addEventListener("resize", updateScreenWidth);
+
+      return () => {
+        window.removeEventListener("resize", updateScreenWidth);
+      };
+    }
+  }, []);
+
   return (
     <Box
-      style={{ marginTop: "64px", paddingLeft: "210px", paddingRight: "210px" }}
+      style={{
+        marginTop: screenWidth < 1080 ? "24px" : "64px",
+        paddingLeft: screenWidth < 1080 ? "50px" : "210px",
+        paddingRight: screenWidth < 1080 ? "50px" : "210px",
+      }}
     >
-      <Flex
-        mih={50}
-        bg="rgba(0, 0, 0, .3)"
-        gap={0}
-        justify="space-between"
-        align="flex-start"
-        direction="row"
-        wrap="nowrap"
-      >
-        <Box w="50%">
-          <Text
-            style={{
-              fontFamily: "Urbanist, sans-serif",
-              fontSize: "35px",
-              color: "#FFFFFF",
-              fontWeight: 700,
-            }}
-          >
-            Want to Turn Social Media Into a Profitable Career?
-          </Text>
-          <Text
-            style={{
-              fontFamily: "Urbanist, sans-serif",
-              fontSize: "35px",
-              color: "#00E7F9",
-              textShadow: "0px 4px 4px #FC004E",
-              fontWeight: 700,
-            }}
-          >
-            Discover your way to success with Fametonic:
-          </Text>
-
-          <Box mt={16}>
-            <Group mt={8} gap="xs" wrap="nowrap">
-              <img src="https://i.ibb.co.com/v62fY0zM/image.png" alt="" />
-              <Text fw={600}>
-                Start growing your influence right away—no waiting required!
-              </Text>
-            </Group>
-            <Group mt={8} gap="xs" wrap="nowrap">
-              <img src="https://i.ibb.co.com/v62fY0zM/image.png" alt="" />
-              <Text fw={600}>
-                Create viral TikToks and Reels step by step with easy-to-follow
-                lessons
-              </Text>
-            </Group>
-            <Group mt={8} gap="xs" wrap="nowrap">
-              <img src="https://i.ibb.co.com/v62fY0zM/image.png" alt="" />
-              <Text fw={600}>
-                Use a Personal AI Worker to boost your content
-              </Text>
-            </Group>
-            <Group mt={8} gap="xs" wrap="nowrap">
-              <img src="https://i.ibb.co.com/v62fY0zM/image.png" alt="" />
-              <Text fw={600}>
-                Learn from expert-led courses designed for aspiring influencers
-              </Text>
-            </Group>
+      <Box className="hero-flex">
+        <Box style={{ width: screenWidth < 1080 ? "100%" : "50%" }}>
+          <Box style={{ textAlign: screenWidth < 1080 ? "center" : "start" }}>
+            <Text className="hero-title">
+              Want to Turn Social Media Into a Profitable Career?
+            </Text>
+            <Text className="hero-title2">
+              Discover your way to success with Fametonic:
+            </Text>
           </Box>
 
-          <Box mt={32}>
-            <Button className="get-started-button">
-              GET STARTED &nbsp;&gt;
-            </Button>
-            <Text
-              style={{
-                width: 313,
-                fontSize: "12px",
-                lineHeight: "16px",
-                textAlign: "center",
-                marginTop: "12px",
-              }}
+          <Box
+            style={{
+              display: screenWidth < 1080 ? "flex" : "unset",
+              justifyContent: "center",
+            }}
+          >
+            <Box mt={16}>
+              <Group mt={8} gap="xs" wrap="nowrap">
+                <img src="https://i.ibb.co.com/v62fY0zM/image.png" alt="" />
+                <Text className="hero-list-text">
+                  Start growing your influence right away—no waiting required!
+                </Text>
+              </Group>
+              <Group mt={8} gap="xs" wrap="nowrap">
+                <img src="https://i.ibb.co.com/v62fY0zM/image.png" alt="" />
+                <Text className="hero-list-text">
+                  Create viral TikToks and Reels step by step with
+                  easy-to-follow lessons
+                </Text>
+              </Group>
+              <Group mt={8} gap="xs" wrap="nowrap">
+                <img src="https://i.ibb.co.com/v62fY0zM/image.png" alt="" />
+                <Text className="hero-list-text">
+                  Use a Personal AI Worker to boost your content
+                </Text>
+              </Group>
+              <Group mt={8} gap="xs" wrap="nowrap">
+                <img src="https://i.ibb.co.com/v62fY0zM/image.png" alt="" />
+                <Text className="hero-list-text">
+                  Learn from expert-led courses designed for aspiring
+                  influencers
+                </Text>
+              </Group>
+            </Box>
+          </Box>
+
+          {screenWidth < 1080 && (
+            <Box
+              mt={24}
+              style={{ textAlign: screenWidth < 1080 ? "center" : "start" }}
             >
-              1-minute quiz for personalized Insights
-            </Text>
-            <Box mt={36}>
               <Text
                 style={{
                   fontSize: "12px",
@@ -102,17 +101,59 @@ const HeroContainer = () => {
                 Fametonic 2025 ©All Rights Reserved.
               </Text>
             </Box>
+          )}
+
+          <Box mt={32}>
+            <Box style={{ textAlign: screenWidth < 1080 ? "center" : "start" }}>
+              <Button className="get-started-button">
+                GET STARTED &nbsp;&gt;
+              </Button>
+              <Text
+                style={{
+                  width: screenWidth < 1080 ? "auto" : 313,
+                  fontSize: "12px",
+                  lineHeight: "16px",
+                  textAlign: "center",
+                  marginTop: "12px",
+                }}
+              >
+                1-minute quiz for personalized Insights
+              </Text>
+            </Box>
+            {screenWidth > 1080 && (
+              <Box mt={36}>
+                <Text
+                  style={{
+                    fontSize: "12px",
+                    color: "#ABABAB",
+                    marginTop: "12px",
+                  }}
+                >
+                  By clicking "Get Started", you agree with Terms and
+                  Conditions, Privacy Policy, Subscription Terms
+                </Text>
+                <Text
+                  style={{
+                    fontSize: "10px",
+                    color: "#ABABAB",
+                    marginTop: "12px",
+                  }}
+                >
+                  Fametonic 2025 ©All Rights Reserved.
+                </Text>
+              </Box>
+            )}
           </Box>
         </Box>
 
-        <Box w="50%">
+        <Box style={{ width: screenWidth < 1080 ? "100%" : "50%" }}>
           <img
             src="https://i.ibb.co.com/B21yb0QB/Influe-mobile-mockup-3-1.png"
             alt="hero_right_img"
-            style={{ width: "100%" }}
+            className="hero-img"
           />
         </Box>
-      </Flex>
+      </Box>
     </Box>
   );
 };
