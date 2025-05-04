@@ -27,8 +27,8 @@ const Navbar = () => {
           align="flex-start"
           style={{
             marginTop: "42px",
-            paddingLeft: "240px",
-            paddingRight: "240px",
+            paddingLeft: "210px",
+            paddingRight: "210px",
           }}
         >
           <Box style={{ width: "148px" }}>
