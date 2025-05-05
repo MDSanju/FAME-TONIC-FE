@@ -3,6 +3,8 @@ import React, { useEffect, useState } from "react";
 import { Anchor, Box, Burger, Flex, Group, Text } from "@mantine/core";
 import { useDisclosure } from "@mantine/hooks";
 
+import { StyledHeaderTitle } from "@/components/styles/navbar.styles";
+
 const Navbar = () => {
   const [screenWidth, setScreenWidth] = useState(0);
   const [opened, { toggle }] = useDisclosure();
@@ -36,10 +38,10 @@ const Navbar = () => {
           borderRadius: 0,
         }}
       >
-        <text className="header-title">
+        <StyledHeaderTitle>
           🚀 <span style={{ color: "#00E7F9" }}>FRESH BEGINNINGS SALE:</span>{" "}
           Extra 25% OFF, Limited Spots - start your journey today!
-        </text>
+        </StyledHeaderTitle>
       </Box>
 
       {screenWidth < 1080 ? (

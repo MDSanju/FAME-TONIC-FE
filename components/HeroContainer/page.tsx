@@ -2,6 +2,13 @@
 import React, { useEffect, useState } from "react";
 import { Box, Button, Group, Text } from "@mantine/core";
 
+import {
+  StyledHeroFlex,
+  StyledHeroListText,
+  StyledHeroTitle,
+  StyledHeroTitle2,
+} from "../styles/hero.styles";
+
 const HeroContainer = () => {
   const [screenWidth, setScreenWidth] = useState(0);
 
@@ -29,15 +36,15 @@ const HeroContainer = () => {
         paddingRight: screenWidth < 1080 ? "50px" : "210px",
       }}
     >
-      <Box className="hero-flex">
+      <StyledHeroFlex>
         <Box style={{ width: screenWidth < 1080 ? "100%" : "50%" }}>
           <Box style={{ textAlign: screenWidth < 1080 ? "center" : "start" }}>
-            <Text className="hero-title">
+            <StyledHeroTitle>
               Want to Turn Social Media Into a Profitable Career?
-            </Text>
-            <Text className="hero-title2">
+            </StyledHeroTitle>
+            <StyledHeroTitle2>
               Discover your way to success with Fametonic:
-            </Text>
+            </StyledHeroTitle2>
           </Box>
 
           <Box
@@ -49,29 +56,29 @@ const HeroContainer = () => {
             <Box mt={16}>
               <Group mt={8} gap="xs" wrap="nowrap">
                 <img src="https://i.ibb.co.com/v62fY0zM/image.png" alt="" />
-                <Text className="hero-list-text">
+                <StyledHeroListText>
                   Start growing your influence right away—no waiting required!
-                </Text>
+                </StyledHeroListText>
               </Group>
               <Group mt={8} gap="xs" wrap="nowrap">
                 <img src="https://i.ibb.co.com/v62fY0zM/image.png" alt="" />
-                <Text className="hero-list-text">
+                <StyledHeroListText>
                   Create viral TikToks and Reels step by step with
                   easy-to-follow lessons
-                </Text>
+                </StyledHeroListText>
               </Group>
               <Group mt={8} gap="xs" wrap="nowrap">
                 <img src="https://i.ibb.co.com/v62fY0zM/image.png" alt="" />
-                <Text className="hero-list-text">
+                <StyledHeroListText>
                   Use a Personal AI Worker to boost your content
-                </Text>
+                </StyledHeroListText>
               </Group>
               <Group mt={8} gap="xs" wrap="nowrap">
                 <img src="https://i.ibb.co.com/v62fY0zM/image.png" alt="" />
-                <Text className="hero-list-text">
+                <StyledHeroListText>
                   Learn from expert-led courses designed for aspiring
                   influencers
-                </Text>
+                </StyledHeroListText>
               </Group>
             </Box>
           </Box>
@@ -153,7 +160,7 @@ const HeroContainer = () => {
             className="hero-img"
           />
         </Box>
-      </Box>
+      </StyledHeroFlex>
     </Box>
   );
 };
