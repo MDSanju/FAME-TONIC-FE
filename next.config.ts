@@ -1,6 +1,6 @@
-// next.config.js
-module.exports = {
-  experimental: {
-    optimizeCss: false,
-  },
-};
+const nextConfig = {
+  reactStrictMode: true,
+  swcMinify: true,
+}
+
+module.exports = nextConfig
