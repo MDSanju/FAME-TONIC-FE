@@ -6,8 +6,8 @@ import {
   mantineHtmlProps,
 } from "@mantine/core";
 
-import "@mantine/core/styles.css";
 import "./globals.css";
+import "@mantine/core/styles.css";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
