@@ -36,10 +36,10 @@ const Navbar = () => {
           borderRadius: 0,
         }}
       >
-        <Text fw={800} className="header-title">
+        <text className="header-title">
           🚀 <span style={{ color: "#00E7F9" }}>FRESH BEGINNINGS SALE:</span>{" "}
           Extra 25% OFF, Limited Spots - start your journey today!
-        </Text>
+        </text>
       </Box>
 
       {screenWidth < 1080 ? (
