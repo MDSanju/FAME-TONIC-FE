@@ -1,13 +1,9 @@
 "use client";
 import React, { useEffect, useState } from "react";
-import { Anchor, Box, Burger, Flex, Group, Text } from "@mantine/core";
-import { useDisclosure } from "@mantine/hooks";
-
-import { StyledHeaderTitle } from "@/components/styles/navbar.styles";
 
 const Navbar = () => {
   const [screenWidth, setScreenWidth] = useState(0);
-  const [opened, { toggle }] = useDisclosure();
+  const [opened, setOpened] = useState(false); // replaces useDisclosure
 
   useEffect(() => {
     if (typeof window !== "undefined") {
@@ -25,9 +21,13 @@ const Navbar = () => {
     }
   }, []);
 
+  const toggle = () => {
+    setOpened((prev) => !prev);
+  };
+
   return (
     <>
-      <Box
+      <div
         style={{
           backgroundImage: "linear-gradient(to right, #FC004E, #10CBE0)",
           width: "100%",
@@ -38,13 +38,13 @@ const Navbar = () => {
           borderRadius: 0,
         }}
       >
-        <StyledHeaderTitle>
+        <p className="header-title">
           🚀 <span style={{ color: "#00E7F9" }}>FRESH BEGINNINGS SALE:</span>{" "}
           Extra 25% OFF, Limited Spots - start your journey today!
-        </StyledHeaderTitle>
-      </Box>
+        </p>
+      </div>
 
-      {screenWidth < 1080 ? (
+      {/* {screenWidth < 1080 ? (
         <Box>
           <Flex
             gap="md"
@@ -104,7 +104,7 @@ const Navbar = () => {
             </Box>
           </Group>
         </Box>
-      )}
+      )} */}
     </>
   );
 };

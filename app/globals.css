@@ -70,6 +70,14 @@ a {
   font-weight: 700;
 }
 
+.list-group {
+  display: flex;
+  align-items: center;
+  flex-wrap: nowrap;
+  gap: 4px;
+  margin-top: 8px;
+}
+
 .hero-list-text {
   font-weight: 600;
 }
