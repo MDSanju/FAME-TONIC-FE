@@ -96,7 +96,7 @@ const HeroContainer = () => {
                 style={{
                   fontSize: "10px",
                   color: "#ABABAB",
-                  marginTop: "12px",
+                  marginTop: "16px",
                 }}
               >
                 Fametonic 2025 ©All Rights Reserved.
@@ -137,7 +137,7 @@ const HeroContainer = () => {
                   style={{
                     fontSize: "10px",
                     color: "#ABABAB",
-                    marginTop: "12px",
+                    marginTop: "16px",
                   }}
                 >
                   Fametonic 2025 ©All Rights Reserved.
