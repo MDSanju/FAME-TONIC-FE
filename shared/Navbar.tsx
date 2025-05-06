@@ -3,7 +3,6 @@ import React, { useEffect, useState } from "react";
 
 const Navbar = () => {
   const [screenWidth, setScreenWidth] = useState(0);
-  const [opened, setOpened] = useState(false); // replaces useDisclosure
 
   useEffect(() => {
     if (typeof window !== "undefined") {
@@ -20,10 +19,6 @@ const Navbar = () => {
       };
     }
   }, []);
-
-  const toggle = () => {
-    setOpened((prev) => !prev);
-  };
 
   return (
     <>
@@ -44,67 +39,48 @@ const Navbar = () => {
         </p>
       </div>
 
-      {/* {screenWidth < 1080 ? (
-        <Box>
-          <Flex
-            gap="md"
-            justify="space-between"
-            align="center"
-            direction="row"
-            wrap="nowrap"
-            p={24}
-          >
-            <Box></Box>
-            <Box style={{ width: "108px", height: "48px" }}>
+      {screenWidth < 1080 ? (
+        <div>
+          <div className="nav-flex">
+            <div></div>
+            <div style={{ width: "108px", height: "48px" }}>
               <img
                 src="https://i.ibb.co.com/TQp0WTH/Group.png"
                 alt="logo_header"
                 style={{ width: "100%" }}
               />
-            </Box>
-            <Box>
-              <Burger
-                opened={opened}
-                onClick={toggle}
-                aria-label="Toggle navigation"
-                color="#fff"
-                size="md"
-              />
-            </Box>
-          </Flex>
-        </Box>
+            </div>
+            <div>
+              <button className="burger-button" aria-label="Toggle navigation">
+                ☰
+              </button>
+            </div>
+          </div>
+        </div>
       ) : (
-        <Box>
-          <Group
-            justify="space-between"
-            align="flex-start"
-            style={{
-              marginTop: "42px",
-              paddingLeft: "210px",
-              paddingRight: "210px",
-            }}
-          >
-            <Box style={{ width: "148px" }}>
+        <div>
+          <div className="navbar-flex">
+            <div style={{ width: "148px" }}>
               <img
                 src="https://i.ibb.co.com/TQp0WTH/Group.png"
                 alt="logo_header"
                 style={{ width: "100%" }}
               />
-            </Box>
+            </div>
 
-            <Box>
-              <Group gap="xl">
-                <Anchor href="/" underline="never" c="#A9A9A9">
-                  About us
-                </Anchor>
-                <Anchor href="/" underline="never" c="#A9A9A9">
-                  Contact
-                </Anchor>
-              </Group>
-            </Box>
-          </Group>
-        </Box>
-      )} */}
+            <div>
+              <ul className="horizontal-menu">
+                <li>
+                  <a href="#">About us</a>
+                </li>
+                <li>
+                  <a href="#">Contact</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      )}
     </>
   );
 };

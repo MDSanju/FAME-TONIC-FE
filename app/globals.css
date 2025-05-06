@@ -46,6 +46,46 @@ a {
   padding-right: 10px;
 }
 
+.nav-flex {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: nowrap;
+  gap: 16px;
+  padding: 24px;
+}
+
+.navbar-flex {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-top: 42px;
+  padding-left: 210px;
+  padding-right: 210px;
+}
+
+.horizontal-menu {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  gap: 24px;
+}
+
+.horizontal-menu li a {
+  text-decoration: none;
+  color: #a9a9a9;
+  font-weight: 500;
+}
+
+.burger-button {
+  font-size: 24px;
+  color: #fff;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
 .hero-flex {
   min-height: 50px;
   display: flex;
